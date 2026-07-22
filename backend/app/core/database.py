@@ -7,10 +7,10 @@ import os
 os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
 
 engine = create_async_engine(
-    settings.DATABASE_URL,
+    settings.get_database_url(),
     echo=False,
     future=True,
-    connect_args={"check_same_thread": False} if "sqlite" in settings.DATABASE_URL else {}
+    connect_args={"check_same_thread": False} if "sqlite" in settings.get_database_url() else {}
 )
 
 AsyncSessionLocal = async_sessionmaker(

@@ -121,12 +121,12 @@ jalatask/
 
 ```mermaid
 graph TD
-    subgraph Frontend Client (Vite + React 19)
+    subgraph "Frontend Client (Vite + React 19)"
         UI[React Components] --> Auth[AuthContext]
         UI --> API[Axios API client]
     end
 
-    subgraph Backend Server (FastAPI)
+    subgraph "Backend Server (FastAPI)"
         API -->|HTTPS Request + Bearer JWT| Main[FastAPI Router]
         Main -->|Validate Request| Schemas[Pydantic Schemas]
         Main --> Dep[Dependencies & RBAC Guard]
@@ -134,7 +134,7 @@ graph TD
         Services --> DB[SQLAlchemy AsyncSession]
     end
 
-    subgraph Relational Database
+    subgraph "Relational Database"
         DB -->|asyncpg driver| Postgres[(PostgreSQL Database)]
     end
 ```

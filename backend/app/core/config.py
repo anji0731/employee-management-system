@@ -1,6 +1,6 @@
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from typing import List, Optional
+from typing import List, Optional, Any
 import os
 
 class Settings(BaseSettings):
@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     REFRESH_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 30 # 30 days
     
     # CORS Origins
-    BACKEND_CORS_ORIGINS: List[str] = [
+    BACKEND_CORS_ORIGINS: Any = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:3000",
